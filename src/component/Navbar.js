@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import {BsCart } from "@react-icons/all-files/fa/FaBeer";
+ 
+import { BsCart} from "react-icons/bs"
 function Navbar()
 {
     return(
@@ -11,7 +12,7 @@ function Navbar()
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav">
+      <div className="navbar-nav  flex-grow-1 justify-content-end ">
         <NavLink className="nav-link active" aria-current="page" href="#">Home</NavLink>
         <NavLink className="nav-link" to="/">Features</NavLink>
         <NavLink className="nav-link" to="/">Pricing</NavLink>
