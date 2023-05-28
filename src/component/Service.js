@@ -1,12 +1,12 @@
 import React from "react";
 import { BsTruck } from "react-icons/bs";
-import {RiSecurePaymentLine} from 'react-icons/ri'
+import { RiSecurePaymentLine } from "react-icons/ri";
 function Service() {
   return (
     <div className="container">
-      <div className="row mt-5">
+      <div className="row mt-5 justify-content-center">
         {/* card1 */}
-        <div className="col-md-2">
+        <div className="col-md-3">
           <div
             className="card text-dark bg-light mb-3"
             style={{ maxWidth: "18rem" }}
@@ -24,10 +24,28 @@ function Service() {
           </div>
         </div>
         {/* card2 */}
-        
+        <div className="col-md-3">
+          <div className="card text-dark bg-light mb-3">
+            <p>
+              <span>
+                <RiSecurePaymentLine className="fs-2" />
+              </span>
+              Super Secure Payment System
+            </p>
+          </div>
+          <div className="card text-dark bg-light mb-3">
+            <p>
+              <span>
+                <RiSecurePaymentLine className="fs-2" />
+              </span>
+              Super Secure Payment System
+            </p>
+          </div>
+        </div>
+
         {/* card3 */}
-        <div className="col-md-2">
-        <div
+        <div className="col-md-3">
+          <div
             className="card text-dark bg-light mb-3"
             style={{ maxWidth: "18rem" }}
           >
