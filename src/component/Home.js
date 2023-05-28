@@ -1,8 +1,17 @@
 import React from 'react'
+import HeroSection from './HeroSection'
+import Service from './Service'
+import Truseted from './Truseted'
 
 function Home() {
   return (
-    <div>Home</div>
+    <>
+     <HeroSection/>
+    <Service/>
+    <Truseted/>
+    
+    </>
+   
   )
 }
 

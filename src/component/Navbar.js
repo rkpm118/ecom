@@ -14,12 +14,12 @@ function Navbar()
     </button>
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav  flex-grow-1 justify-content-end  align-items-center">
-        <NavLink className="nav-link active" aria-current="page" href="#">HOME</NavLink>
-        <NavLink className="nav-link" to="/">ABOUT</NavLink>
-        <NavLink className="nav-link" to="/">PRODUCTS</NavLink>
-        <NavLink className="nav-link" to="/">CONTACT</NavLink>
+        <NavLink className="nav-link active" aria-current="page" to='/'>HOME</NavLink>
+        <NavLink className="nav-link" to="/about">ABOUT</NavLink>
+        <NavLink className="nav-link" to="/products">PRODUCTS</NavLink>
+        <NavLink className="nav-link" to="/contact">CONTACT</NavLink>
         <NavLink className="nav-link" to="/"><Button btnName="LOG IN"/></NavLink>
-        <NavLink className="position-relative me-2"><BsCart  style={{fontSize:"25px"}} />   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <NavLink to='/cart' className="position-relative me-2"><BsCart  style={{fontSize:"25px"}} />   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
     99+
     <span class="visually-hidden">unread messages</span>
   </span></NavLink>
