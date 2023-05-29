@@ -11,7 +11,7 @@ function Contact() {
         <h2 className="m-3 text-center">Feel Free To Contact Us</h2>
       </div>
       <div className="map">
-        <iframe
+        <iframe title="map intrigation"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.2588458604637!2d77.69820641482185!3d12.95528159086657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13afc62813f9%3A0xdcf1837520b28dfa!2sJSpiders%20Marathahalli!5e0!3m2!1sen!2sin!4v1685278222603!5m2!1sen!2sin"
           width="100%"
           height="450"
