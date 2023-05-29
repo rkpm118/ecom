@@ -6,7 +6,7 @@ import Button from "./CommonTemplate/Button";
 function Contact() {
   
   return (
-    <div className="container">
+    <div className="container mb-5">
       <div className="header">
         <h2 className="m-3 text-center">Feel Free To Contact Us</h2>
       </div>
