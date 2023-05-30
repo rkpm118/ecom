@@ -6,7 +6,7 @@ import { BsInstagram,BsYoutube,BsGithub } from "react-icons/bs";
 function Footer() {
    
   return (
-     <div className="container-fluid   d-flex  flex-column  position-relative mt-5 ms-0 me-0" style={{width:"100%",background:"yellow"}}>
+     <div className="container-fluid   d-flex  flex-column  position-fixed bottom-0 mt-5 ms-0 me-0" style={{width:"100%",background:"yellow"}}>
      {/* //1 */}
         <div className="row bg-light d-flex justify-content-between rounded-1 position-absolute  top-0 start-50  translate-middle" style={{width:"800px"}}>
             <div className="col-3 ms-5">
