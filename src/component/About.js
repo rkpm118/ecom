@@ -4,9 +4,10 @@ import { useProductData } from '../context/product'
 
 function About() {
   let x=useProductData()
+  console.log(x);
   return (
     <> 
-    <h1>{x}</h1>
+    
     <HeroSection name="E Commerce"/>
     </>
     
