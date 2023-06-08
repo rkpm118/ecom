@@ -13,7 +13,7 @@ function FetureProduct() {
       <div className="container-fluid bg-light p-5" >
       <p className="text-primary">CHECK NOW</p>
           <h4>Our Feature Services</h4>
-        <div className="row">
+        <div className="row justify-content-evenly">
              { fetured_Data? fetured_Data.map((data)=>{
                 return  <Products product={data} key={data.id}/>
               }):null}
