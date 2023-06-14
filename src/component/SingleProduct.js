@@ -5,6 +5,7 @@ import PictureProduct from "./PictureProduct";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { GiRecycle } from "react-icons/gi";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
+import TabNavBar from "./TabNavBar";
 
 function SingleProduct() {
   let { id: alias } = useParams();
@@ -41,6 +42,8 @@ function SingleProduct() {
     return <h1>loading..........</h1>;
   }
   return (
+    <>
+    <TabNavBar company={company}/>
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-md-5">
@@ -84,6 +87,7 @@ function SingleProduct() {
 
       </div>
     </div>
+    </>
   );
 }
 
