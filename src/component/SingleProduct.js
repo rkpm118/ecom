@@ -6,6 +6,7 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { GiRecycle } from "react-icons/gi";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import TabNavBar from "./TabNavBar";
+import AddToCart from "./AddToCart";
 
 function SingleProduct() {
   let { id: alias } = useParams();
@@ -32,6 +33,7 @@ function SingleProduct() {
     stars,
     stock,
   } = singleProduct;
+  console.log('single product',singleProduct)
 
 
   useEffect(() => {
@@ -83,6 +85,8 @@ function SingleProduct() {
           <p>Available:<b>In Stock</b></p>
           <p>ID:<b>{id}</b></p>
           <p>BRAND:<b>{company}</b></p>
+          <hr/>
+          {stock>0&&<AddToCart product={singleProduct}/>}
         </div>
 
       </div>
