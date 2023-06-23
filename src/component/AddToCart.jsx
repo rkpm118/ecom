@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import "./AddToCart.css";
 import { FaCheck } from "react-icons/fa";
+import ToggleAddCart from "./ToggleAddCart";
 
 function AddToCart({ product }) {
   const { id, colors, stock } = product;
   //for active
   let [color, setColor] = useState(colors[0]);
+  let [cartCount,setCartCount]=useState(1)
+  function incToggler()
+  {
+    cartCount<stock?setCartCount(cartCount+1):setCartCount(stock)
+  }
+  function decToggler()
+  {
+    cartCount>1?setCartCount(cartCount-1):setCartCount(1)
+  }
   return (
     <div>
       <p>
@@ -27,6 +37,8 @@ function AddToCart({ product }) {
           );
         })}
       </p>
+      {stock && <ToggleAddCart incToggler={incToggler} decToggler={decToggler} cartCount={cartCount}/>}
+      
     </div>
   );
 }
