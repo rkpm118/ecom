@@ -2,13 +2,14 @@ import { NavLink } from "react-router-dom";
  
 import { BsCart} from "react-icons/bs"
 import Button from "./CommonTemplate/Button";
+ 
 function Navbar()
 {
     return(
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-    <NavLink className="navbar-brand" to="/">Navbar</NavLink>
+    <NavLink className="navbar-brand" to="/">Utsav Store</NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
