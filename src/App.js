@@ -10,6 +10,7 @@ import Cart from './component/Cart';
 import Error from './component/Error';
 import Header from './component/Header';
 import Footer from './component/Footer';
+import ProductList from './component/ProductList';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
     
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
-        <Route path='/products' element={<Products/>}/>
+        <Route path='/products' element={<ProductList/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/singleproduct/:id' element={<SingleProduct/>}/>
         <Route path='/cart' element={<Cart/>}  />
