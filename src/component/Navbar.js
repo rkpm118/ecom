@@ -41,9 +41,9 @@ function Navbar() {
               </NavLink>
               <NavLink to="/cart" className="position-relative me-2">
                 <BsCart style={{ fontSize: "25px" }} />{" "}
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   99+
-                  <span class="visually-hidden">unread messages</span>
+                  <span className="visually-hidden">unread messages</span>
                 </span>
               </NavLink>
             </div>
