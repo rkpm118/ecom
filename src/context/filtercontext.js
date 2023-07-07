@@ -6,7 +6,7 @@ const FilterContext = createContext();
 const intialState = {
     filter_products: [],
     all_products: [],
-    grid_view: true
+    grid_view: false
 }
 export const FilterContextProvider = ({ children }) => {
     // we are getting this data form the product because we already got this data in product.js context
