@@ -6,7 +6,7 @@ const FilterContext = createContext();
 const intialState = {
     filter_products: [],
     all_products: [],
-    grid_view: false
+    grid_view: true
 }
 export const FilterContextProvider = ({ children }) => {
     // we are getting this data form the product because we already got this data in product.js context
@@ -16,10 +16,13 @@ export const FilterContextProvider = ({ children }) => {
     const setGridView = () => {
         return dispatch({ type: 'SET_GRIDVIEW' })
     }
+    const setListView = () => {
+        return dispatch({ type: "SET_LISTVIEW" })
+    }
     useEffect(() => {
         dispatch({ type: 'LOAD_FILTER_PRODUCTS', payload: products })
     }, [products])
-    return <FilterContext.Provider value={{ ...state, setGridView }}>
+    return <FilterContext.Provider value={{ ...state, setGridView, setListView }}>
         {children}
     </FilterContext.Provider>
 }

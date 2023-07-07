@@ -9,10 +9,15 @@ const filterReducer = (state, action) => {
 
             }
         //this reducer for the showing grid view
-        case "'SET_GRIDVIEW":
+        case "SET_GRIDVIEW":
             return {
                 ...state,
                 grid_view: true
+            }
+        case "SET_LISTVIEW":
+            return {
+                ...state,
+                grid_view: false
             }
 
 
