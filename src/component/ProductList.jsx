@@ -6,8 +6,6 @@ import { useFilterContext } from '../context/filtercontext'
 import Products from './Products'
 
 function ProductList() {
-    const { filter_products, all_products } = useFilterContext()
-    console.log('this is the filterproduct and this is the for allproduct form product list ', filter_products, all_products)
     return (
         <div className='container'>
             <div className="row">
@@ -23,20 +21,6 @@ function ProductList() {
                         </div>
                         {/* //this is the for the product item */}
                         <div className="col-12">
-
-
-
-
-                             {/*<div className="row justify-content-evenly">
-                                {filter_products ? filter_products.map((data) => {
-                                    return <Products product={data} key={data.id} />
-                                }) : null}
-                            </div> */}
-
-
-
-
-
                             <ProductItem />
                         </div>
                     </div>
