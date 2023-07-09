@@ -7,6 +7,7 @@ import { GiRecycle } from "react-icons/gi";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import TabNavBar from "./TabNavBar";
 import AddToCart from "./AddToCart";
+import Loding from "./CommonTemplate/Loding";
 
 function SingleProduct() {
   let { id: alias } = useParams();
@@ -41,7 +42,7 @@ function SingleProduct() {
   }, []);
 
   if (isSingleLoading) {
-    return <h1>loading..........</h1>;
+    return  <Loding/>
   }
   return (
     <>

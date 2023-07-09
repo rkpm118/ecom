@@ -1,12 +1,13 @@
 import React from "react";
 import { useProductData } from "../context/product";
 import Products from "./Products";
+import Loding from "./CommonTemplate/Loding";
 
 function FetureProduct() {
   let {loading,fetured_Data} = useProductData();
   
   if (loading) {
-    return <h1>loading......</h1>;
+    return  <Loding/>
   }
   return (
     <>
