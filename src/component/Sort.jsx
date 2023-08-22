@@ -7,8 +7,8 @@ function Sort() {
     backgroundColor: "black",
     color: 'white'
   }
-  let { grid_view, setListView, setGridView, filter_products } = useFilterContext()
-  console.log(grid_view)
+  let { grid_view, setListView, setGridView, filter_products, sorting } = useFilterContext()
+  //console.log(grid_view)
   return (
     <div className='row justify-content-between m-4'>
       <div className='col ' >
@@ -21,7 +21,15 @@ function Sort() {
         <p><b>{filter_products.length}</b> Products Available</p>
       </div>
       <div className='col'>
-        selecte box
+        <select onClick={sorting} id='sort'>
+          <option value="lowest">Price(lowest)</option>
+          <option value="#" disabled></option>
+          <option value="highest">Price(highest)</option>
+          <option value="#" disabled></option>
+          <option value="A-Z">Price(A-Z)</option>
+          <option value="#" disabled></option>
+          <option value="Z-A">Price(Z-A)</option>
+        </select>
       </div>
     </div>
   )
