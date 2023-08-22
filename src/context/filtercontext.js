@@ -24,6 +24,7 @@ export const FilterContextProvider = ({ children }) => {
     function sorting() {
         return dispatch({ type: "SORT_VALUE" })
     }
+    //to sort the filter project
     useEffect(() => {
         dispatch({ type: "SORTING_PRODUCTS", payload: products })
     }, [state.sorting_value])
