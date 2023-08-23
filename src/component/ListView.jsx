@@ -1,12 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Button from './CommonTemplate/Button'
+import Loading from '../component/CommonTemplate/Loding'
 
 function ListView({ products }) {
 
     return (
         <div className="container">
             <div className="row d-flex justify-content-center align-items-center">
+             
+                {products.length===0 &&  <Loading/>}
                 {products.map((data) => {
                     const { id, name, image, price, description } = data
                     return <>
