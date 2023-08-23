@@ -8,6 +8,9 @@ const intialState = {
   all_products: [],
   grid_view: true,
   sorting_value: "lowest",
+  filter:{
+    text:""
+  }
 };
 export const FilterContextProvider = ({ children }) => {
   // we are getting this data form the product because we already got this data in product.js context
@@ -24,16 +27,26 @@ export const FilterContextProvider = ({ children }) => {
   function sorting(event) {
     return dispatch({ type: "SORT_VALUE", payload: event.target.value });
   }
+
+  //serching function
+   function  updateHandler(e)
+   {
+    let name=e.target.name
+    let value=e.target.value
+   
+     return dispatch({type:"SET_FILTER_TEXT",payload:{name,value}})
+   }
   //to sort the filter project
   useEffect(() => {
+       dispatch({type:"FILTER_PRODUCT"})
       dispatch({ type: "SORTING_PRODUCTS" })
-  }, [state.sorting_value,products])
+  }, [state.sorting_value,products,state.filter.text])
   useEffect(() => {
     dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
   }, [products]);
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, sorting }}
+      value={{ ...state, setGridView, setListView, sorting,updateHandler }}
     >
       {children}
     </FilterContext.Provider>

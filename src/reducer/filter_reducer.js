@@ -1,5 +1,4 @@
 const filterReducer = (state, action) => {
-  //let { products } = useProductData();
   switch (action.type) {
     case "LOAD_FILTER_PRODUCTS":
       //here i am taking array because i dont want to use orignal array i want to return new array
@@ -48,6 +47,28 @@ const filterReducer = (state, action) => {
         ...state,
         filter_products: newsortData,
       };
+    case "SET_FILTER_TEXT":
+      let { name, value } = action.payload;
+
+      {
+        return {
+          ...state,
+          filter: { ...state.filter.text, [name]: value },
+        };
+      }
+     case "FILTER_PRODUCT":
+        {
+            
+            let tempsortProduct = [...state.all_products];
+            tempsortProduct=tempsortProduct.filter((data)=>{
+                return data.name.toLowerCase().includes(state.filter.text)
+            })
+            return {
+                ...state,
+                filter_products:tempsortProduct
+
+            }
+        }
     default:
       return state;
   }

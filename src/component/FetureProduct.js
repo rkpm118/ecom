@@ -5,6 +5,7 @@ import Loding from "./CommonTemplate/Loding";
 
 function FetureProduct() {
   let {loading,fetured_Data} = useProductData();
+ 
   
   if (loading) {
     return  <Loding/>

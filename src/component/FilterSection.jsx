@@ -1,8 +1,13 @@
 import React from 'react'
+import { useFilterContext } from '../context/filtercontext'
 
 function FilterSection() {
+      let {filter:{text}, updateHandler}  =useFilterContext()
+     
   return (
-    <div>FilterSection</div>
+     <>
+     <input type='text' name='text'  value={text}  onChange={updateHandler}/>
+     </>
   )
 }
 
