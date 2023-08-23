@@ -6,7 +6,7 @@ function FilterSection() {
      
   return (
      <>
-     <input type='text' name='text'  value={text}  onChange={updateHandler}/>
+     <input type='text' name='text'  value={text}  onChange={updateHandler} placeholder='SEARCH'/>
      </>
   )
 }

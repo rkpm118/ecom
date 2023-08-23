@@ -1,20 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Button from './CommonTemplate/Button'
-import Loading from '../component/CommonTemplate/Loding'
 import { useProductData } from '../context/product'
 import Loding from '../component/CommonTemplate/Loding'
  
 
 function ListView({ products }) {
-   let {loading}= useProductData()
+   let {loading,error}= useProductData()
 
     return (
         <div className="container">
             <div className="row d-flex justify-content-center align-items-center">
              
                 {loading && <Loding/>}
-                {!loading && products.length==0 && <h1>No match data</h1>}
+                {!loading && products.length==0 && !error && <h1>No match data</h1>}
                 {products.map((data) => {
                     const { id, name, image, price, description } = data
                     return <>
