@@ -1,10 +1,10 @@
-import React from "react";
+
 import { useFilterContext } from "../context/filtercontext";
-import { NavLink } from "react-router-dom";
+import "./FilterSection.css";
 
 function FilterSection() {
   let {
-    filter: { text },
+    filter: { text, category },
     updateHandler,
     all_products,
   } = useFilterContext();
@@ -16,13 +16,8 @@ function FilterSection() {
     return newData;
   };
   let categoryDataArray = getValueArray(all_products, "category");
-  //let colorsDataArray=getValueArray(all_products,'colors')
-  console.log(categoryDataArray);
-  function wordHandler(data)
-  {
-    console.log('fjksdkjfjskl',data)
-  }
-
+  let companyDataArray = getValueArray(all_products, 'company')
+  console.log(companyDataArray)
   return (
     <>
       <input
@@ -34,17 +29,34 @@ function FilterSection() {
       />
       {/* This is for the creating dynamic category */}
       <h4>Category</h4>
-      {categoryDataArray.map((data) => {
-        return (
-          <nav className="nav flex-column">
-            <NavLink class="nav-link"  onClick={()=>{
-              wordHandler(data)
-            }}>
+      <nav className="nav flex-column">
+        {categoryDataArray.map((data, i) => {
+          return (
+            <button
+              style={{
+                border: "none",
+                backgroundColor: "white",
+                color: "black",
+                width: "30px",
+              }}
+              key={i}
+              name="category"
+              value={data}
+              onClick={updateHandler}
+            >
               {data}
-            </NavLink>
-          </nav>
-        );
-      })}
+            </button>
+          );
+        })}
+      </nav>
+      <br />
+      <h4>company</h4>
+      <select onClick={updateHandler} name="company">
+        {companyDataArray.map((data, i) => {
+          return <option key={i} value={data}>{data}</option>
+        })}
+
+      </select>
     </>
   );
 }

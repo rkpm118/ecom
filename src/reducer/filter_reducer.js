@@ -53,22 +53,47 @@ const filterReducer = (state, action) => {
       {
         return {
           ...state,
-          filter: { ...state.filter.text, [name]: value },
+          filter: { ...state.filter, [name]: value },
         };
       }
-     case "FILTER_PRODUCT":
-        {
-            
-            let tempsortProduct = [...state.all_products];
-            tempsortProduct=tempsortProduct.filter((data)=>{
-                return data.name.toLowerCase().includes(state.filter.text)
-            })
-            return {
-                ...state,
-                filter_products:tempsortProduct
+    case "FILTER_PRODUCT":
+      {
 
-            }
+        let tempsortProduct = [...state.all_products];
+        if (state.filter.text) {
+          tempsortProduct = tempsortProduct.filter((data) => {
+            return data.name.toLowerCase().includes(state.filter.text)
+          })
         }
+        if (state.filter.category) {
+          tempsortProduct = tempsortProduct.filter((data) => {
+            if (data.category === state.filter.category) {
+              return data
+            }
+            else if (state.filter.category === "All") {
+              return data
+            }
+
+          })
+        }
+        if (state.filter.company) {
+          tempsortProduct = tempsortProduct.filter((data) => {
+            if (data.company === state.filter.company) {
+              return data
+            }
+            else if (state.filter.company === "All") {
+              return data
+            }
+
+          })
+        }
+
+        return {
+          ...state,
+          filter_products: tempsortProduct
+
+        }
+      }
     default:
       return state;
   }
