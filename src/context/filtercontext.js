@@ -36,6 +36,8 @@ export const FilterContextProvider = ({ children }) => {
    
      return dispatch({type:"SET_FILTER_TEXT",payload:{name,value}})
    }
+   //for   categry serach
+   
   //to sort the filter project
   useEffect(() => {
        dispatch({type:"FILTER_PRODUCT"})
