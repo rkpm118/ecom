@@ -11,7 +11,8 @@ const intialState = {
     filter: {
         text: "",
         category: "All",
-        company: "All"
+        company: "All",
+        color:'All'
     }
 };
 export const FilterContextProvider = ({ children }) => {

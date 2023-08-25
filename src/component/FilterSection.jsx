@@ -1,10 +1,10 @@
-
 import { useFilterContext } from "../context/filtercontext";
 import "./FilterSection.css";
+import './AddToCart'
 
 function FilterSection() {
   let {
-    filter: { text, category },
+    filter: { text, category ,color},
     updateHandler,
     all_products,
   } = useFilterContext();
@@ -16,8 +16,9 @@ function FilterSection() {
     return newData;
   };
   let categoryDataArray = getValueArray(all_products, "category");
-  let companyDataArray = getValueArray(all_products, 'company')
-  console.log(companyDataArray)
+  let companyDataArray = getValueArray(all_products, "company");
+  let colorDataArray = getValueArray(all_products, "colors").flat();
+  let uniqueColorDataArray = [...new Set(colorDataArray)];
   return (
     <>
       <input
@@ -53,10 +54,28 @@ function FilterSection() {
       <h4>company</h4>
       <select onClick={updateHandler} name="company">
         {companyDataArray.map((data, i) => {
-          return <option key={i} value={data}>{data}</option>
+          return (
+            <option key={i} value={data}>
+              {data}
+            </option>
+          );
         })}
-
       </select>
+      <br />
+      <br/>
+      <h4>colors</h4>
+      {
+          uniqueColorDataArray.map((data,i)=>{
+            return   <button
+            style={{ backgroundColor: data, opacity: 0.5 }}
+            className={
+              color === data ? "add_cart_btn btn_active" : "add_cart_btn"
+            }
+            key={i}
+          >{data}</button>
+          })
+      }
+      
     </>
   );
 }
