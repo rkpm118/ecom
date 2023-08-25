@@ -87,6 +87,19 @@ const filterReducer = (state, action) => {
 
           })
         }
+        if(state.filter.color)
+        {
+          tempsortProduct = tempsortProduct.filter((item)=>{
+              if(item.colors.includes(state.filter.color))
+              {
+                    return item
+              }
+              else if( state.filter.color ==="All")
+              {
+                return item
+              }
+          })
+        }
 
         return {
           ...state,

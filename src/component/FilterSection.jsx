@@ -1,6 +1,7 @@
 import { useFilterContext } from "../context/filtercontext";
 import "./FilterSection.css";
 import './AddToCart'
+import { FaCheck } from "react-icons/fa";
 
 function FilterSection() {
   let {
@@ -8,6 +9,7 @@ function FilterSection() {
     updateHandler,
     all_products,
   } = useFilterContext();
+  console.log(color)
   let getValueArray = (data, property) => {
     let newData = data.map((item) => {
       return item[property];
@@ -40,6 +42,7 @@ function FilterSection() {
                 color: "black",
                 width: "30px",
               }}
+              className={data===category ?"filter_btn_link":null}
               key={i}
               name="category"
               value={data}
@@ -66,13 +69,15 @@ function FilterSection() {
       <h4>colors</h4>
       {
           uniqueColorDataArray.map((data,i)=>{
-            return   <button
-            style={{ backgroundColor: data, opacity: 0.5 }}
+            return   <button name="color"
+            style={{ backgroundColor: data==="All"?"white":data, opacity: 0.6 ,fontSize:"14px",margin:"4px" ,padding:'4px'}}
             className={
               color === data ? "add_cart_btn btn_active" : "add_cart_btn"
             }
-            key={i}
-          >{data}</button>
+            value={data}
+            key={i} onClick={updateHandler}
+          > {data==="All"?data:''}
+           {color === data ? <FaCheck className="btn_check" /> : null}</button>
           })
       }
       
