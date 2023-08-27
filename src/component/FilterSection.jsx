@@ -2,14 +2,18 @@ import { useFilterContext } from "../context/filtercontext";
 import "./FilterSection.css";
 import './AddToCart'
 import { FaCheck } from "react-icons/fa";
+ 
+import rupeeFormatter from 'rupee-formatter'
 
 function FilterSection() {
   let {
     filter: { text, category ,color},
     updateHandler,
     all_products,
+    filter:{maxPrice,minPrice,price}
   } = useFilterContext();
   console.log(color)
+
   let getValueArray = (data, property) => {
     let newData = data.map((item) => {
       return item[property];
@@ -23,14 +27,19 @@ function FilterSection() {
   let uniqueColorDataArray = [...new Set(colorDataArray)];
   return (
     <>
-      <input
+    <div  className="mt-3">
+    <input
         type="text"
         name="text"
         value={text}
         onChange={updateHandler}
-        placeholder="SEARCH"
+        placeholder="SEARCH" 
       />
+    </div>
+     
       {/* This is for the creating dynamic category */}
+       
+      <br/>
       <h4>Category</h4>
       <nav className="nav flex-column">
         {categoryDataArray.map((data, i) => {
@@ -80,6 +89,17 @@ function FilterSection() {
            {color === data ? <FaCheck className="btn_check" /> : null}</button>
           })
       }
+      <br/>
+      <br/>
+      <h4>Price</h4>
+  
+       {rupeeFormatter(price)}
+      <br/>
+      <br/>
+      <input type="range" name="price"  min={minPrice} max={maxPrice} value={price} onChange={updateHandler}/>
+      <br/>
+      <br/>
+      <button className="btn btn-danger" >CLEAR FILTERS</button>
       
     </>
   );

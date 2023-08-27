@@ -2,10 +2,16 @@ const filterReducer = (state, action) => {
   switch (action.type) {
     case "LOAD_FILTER_PRODUCTS":
       //here i am taking array because i dont want to use orignal array i want to return new array
+      //finding a highest price
+      let arr=action.payload.map((data)=>{
+        return data.price
+      })
+      let priceValue=Math.max(...arr)
       return {
         ...state,
         filter_products: [...action.payload],
         all_products: [...action.payload],
+        filter:{...state.filter,maxPrice:priceValue,price:priceValue}
       };
     //this reducer for the showing grid view
     case "SET_GRIDVIEW":
@@ -100,13 +106,21 @@ const filterReducer = (state, action) => {
               }
           })
         }
-
+        if(state.filter.price)
+        {
+          tempsortProduct=tempsortProduct.filter((item)=>{
+            return item.price<=state.filter.price
+          })
+        }
+         
         return {
           ...state,
           filter_products: tempsortProduct
 
         }
       }
+        
+       
     default:
       return state;
   }

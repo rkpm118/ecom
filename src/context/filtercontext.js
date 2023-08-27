@@ -12,7 +12,10 @@ const intialState = {
         text: "",
         category: "All",
         company: "All",
-        color:'All'
+        color:'All',
+        price:0,
+        maxPrice:0,
+        minPrice:0
     }
 };
 export const FilterContextProvider = ({ children }) => {
@@ -36,13 +39,11 @@ export const FilterContextProvider = ({ children }) => {
 
         let name = e.target.name
         let value = e.target.value
-
-
-
+     
         return dispatch({ type: "SET_FILTER_TEXT", payload: { name, value } })
     }
+    
     //for   categry serach
-
     //to sort the filter project
     useEffect(() => {
         dispatch({ type: "FILTER_PRODUCT" })
@@ -53,7 +54,7 @@ export const FilterContextProvider = ({ children }) => {
     }, [products]);
     return (
         <FilterContext.Provider
-            value={{ ...state, setGridView, setListView, sorting, updateHandler }}
+            value={{ ...state, setGridView, setListView, sorting, updateHandler  }}
         >
             {children}
         </FilterContext.Provider>
