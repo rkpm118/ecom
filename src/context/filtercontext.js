@@ -42,7 +42,11 @@ export const FilterContextProvider = ({ children }) => {
      
         return dispatch({ type: "SET_FILTER_TEXT", payload: { name, value } })
     }
-    
+      //function cleaarHandler
+      function clearHandler()
+      {
+        return dispatch({type:"CLEAR_FILTER"})
+      }
     //for   categry serach
     //to sort the filter project
     useEffect(() => {
@@ -54,7 +58,7 @@ export const FilterContextProvider = ({ children }) => {
     }, [products]);
     return (
         <FilterContext.Provider
-            value={{ ...state, setGridView, setListView, sorting, updateHandler  }}
+            value={{ ...state, setGridView, setListView, sorting, updateHandler,clearHandler  }}
         >
             {children}
         </FilterContext.Provider>

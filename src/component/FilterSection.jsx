@@ -10,7 +10,7 @@ function FilterSection() {
     filter: { text, category ,color},
     updateHandler,
     all_products,
-    filter:{maxPrice,minPrice,price}
+    filter:{maxPrice,minPrice,price},clearHandler
   } = useFilterContext();
   console.log(color)
 
@@ -99,7 +99,7 @@ function FilterSection() {
       <input type="range" name="price"  min={minPrice} max={maxPrice} value={price} onChange={updateHandler}/>
       <br/>
       <br/>
-      <button className="btn btn-danger" >CLEAR FILTERS</button>
+      <button className="btn btn-danger" onClick={clearHandler} >CLEAR FILTERS</button>
       
     </>
   );
