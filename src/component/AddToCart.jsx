@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import "./AddToCart.css";
 import { FaCheck } from "react-icons/fa";
 import ToggleAddCart from "./ToggleAddCart";
+import { NavLink } from "react-router-dom";
+import Button from "./CommonTemplate/Button";
+import { useCart } from "../context/cartContext";
 
 function AddToCart({ product }) {
+     let {addToCart} =useCart()
   const { id, colors, stock } = product;
   //for active
   let [color, setColor] = useState(colors[0]);
@@ -38,6 +42,11 @@ function AddToCart({ product }) {
         })}
       </p>
       {stock && <ToggleAddCart incToggler={incToggler} decToggler={decToggler} cartCount={cartCount}/>}
+      <div>
+         <NavLink to='/cart'  onClick={()=>{
+          addToCart(id,color,cartCount,product)
+         }}> <Button btnName="ADD TO CART"/></NavLink>
+        </div>
       
     </div>
   );

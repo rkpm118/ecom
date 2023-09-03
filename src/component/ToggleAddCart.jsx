@@ -11,9 +11,7 @@ function ToggleAddCart({incToggler, decToggler, cartCount}) {
                  <span style={{fontSize:"22px",fontWeight:"bolder",margin:"0px 18px"}}>{cartCount}</span>
        <p> <AiOutlinePlus style={{fontSize:"22px",cursor:"pointer"}} onClick={()=>{incToggler()}}/></p>
         </div>
-        <div>
-         <NavLink to='/cart'> <Button btnName="ADD TO CART"/></NavLink>
-        </div>
+        
     </div> 
   )
 }
