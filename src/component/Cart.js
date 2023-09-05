@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "../context/cartContext";
 import { AiOutlineDelete } from 'react-icons/ai'
+import CartList from "./CartList";
 
 function Cart() {
   let { cart } = useCart();
@@ -34,6 +35,10 @@ function Cart() {
         </div>
         <hr />
       </div>
+      {cart.length === 0 && <h1>no data in cart</h1>}
+      {cart.map((data) => {
+        return <CartList   {...data} />
+      })}
 
     </div>
   );
