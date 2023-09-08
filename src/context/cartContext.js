@@ -16,7 +16,7 @@ function CartProvider({ children }) {
     }
     let [state, dispatch] = useReducer(reducer, initalState)
     let addToCart = (id, color, cartCount, product) => {
-        console.log('i am from context', id, color, cartCount, product)
+        console.log('hii i am testing')
         dispatch({ type: "ADD_TO_CART", payload: { id, color, cartCount, product } })
     }
 

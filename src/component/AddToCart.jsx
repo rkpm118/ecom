@@ -45,7 +45,7 @@ function AddToCart({ product }) {
       <div>
          <NavLink to='/cart'  onClick={()=>{
           addToCart(id,color,cartCount,product)
-         }}> <Button btnName="ADD TO CART"/></NavLink>
+         }} > <Button    btnName="ADD TO CART"/></NavLink>
         </div>
       
     </div>
