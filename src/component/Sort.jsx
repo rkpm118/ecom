@@ -7,7 +7,7 @@ function Sort() {
     color: "white",
   };
 
-  let { grid_view, setListView, setGridView, filter_products, sorting } =
+  let { grid_view, setListView, setGridView, filter_products, sorting ,sorting_value} =
     useFilterContext();
   return (
     <div className="row justify-content-between m-4">
@@ -30,14 +30,14 @@ function Sort() {
         </p>
       </div>
       <div className="col">
-        <select onClick={sorting} id="sort">
-          <option value="lowest">Price(lowest)</option>
+        <select onChange={sorting} id="sort">
+          <option value="lowest" selected={sorting_value=="lowest"?true:false}>Price(lowest)</option>
           <option value="#" disabled></option>
-          <option value="highest">Price(highest)</option>
+          <option value="highest" selected={sorting_value=="highest"?true:false}>Price(highest)</option>
           <option value="#" disabled></option>
-          <option value="A-Z">Price(A-Z)</option>
+          <option value="A-Z" selected={sorting_value=="A-Z"?true:false}>Price(A-Z)</option>
           <option value="#" disabled></option>
-          <option value="Z-A">Price(Z-A)</option>
+          <option value="Z-A" selected={sorting_value=="Z-A"?true:false}>Price(Z-A)</option>
         </select>
       </div>
     </div>
