@@ -23,12 +23,16 @@ function CartProvider({ children }) {
     function delteCartHandler(id) {
         return dispatch({ type: "DELETE_CART_ITEM", payload: id })
     }
+    function clearAllCart()
+    {
+        dispatch({type:"CLEARALLCART"})
+    }
 
     //this is for the set item in localStorage
     useEffect(()=>{
             localStorage.setItem('utsavEcom',JSON.stringify(state.cart))
     },[state.cart])
-    return <cartContext.Provider value={{ ...state, addToCart, delteCartHandler }}>
+    return <cartContext.Provider value={{ ...state, addToCart, delteCartHandler,clearAllCart }}>
         {children}
     </cartContext.Provider>
 

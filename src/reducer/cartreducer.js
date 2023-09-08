@@ -24,6 +24,11 @@ function cartreducer(state, action) {
                 ...state,
                 cart: filterItem
             }
+            case "CLEARALLCART":
+              return  {
+                    ...state,
+                    cart:[]
+                }
 
 
         default:
