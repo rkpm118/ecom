@@ -1,9 +1,15 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducer/cartreducer";
 let cartContext = createContext()
 function CartProvider({ children }) {
+    //this is for the getting the data form localStorage
+    function getItem()
+    {
+      let x=localStorage.getItem('utsavEcom')?JSON.parse(localStorage.getItem('utsavEcom')):[]
+      return x;
+    }
     let initalState = {
-        cart: [],
+        cart: getItem(),
         total_item: '',
         total_amount: '',
         shipping_fee: 5000
@@ -17,6 +23,11 @@ function CartProvider({ children }) {
     function delteCartHandler(id) {
         return dispatch({ type: "DELETE_CART_ITEM", payload: id })
     }
+
+    //this is for the set item in localStorage
+    useEffect(()=>{
+            localStorage.setItem('utsavEcom',JSON.stringify(state.cart))
+    },[state.cart])
     return <cartContext.Provider value={{ ...state, addToCart, delteCartHandler }}>
         {children}
     </cartContext.Provider>
