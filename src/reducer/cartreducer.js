@@ -105,6 +105,14 @@ function cartreducer(state, action) {
                  ...state,
                  total_amount:ammount
          }
+         case "CART_COUNT_VALUE":
+          let item_count=state.cart.reduce((acc,index)=>{
+              return acc+index.quantity
+          },0)
+          return{
+            ...state,
+            total_item:item_count
+          }
     default:
       return state;
   }

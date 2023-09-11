@@ -2,8 +2,10 @@ import { NavLink } from "react-router-dom";
 
 import { BsCart } from "react-icons/bs";
 import Button from "./CommonTemplate/Button";
+import { useCart } from "../context/cartContext";
 
 function Navbar() {
+  let {total_item}=useCart()
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,7 +44,7 @@ function Navbar() {
               <NavLink to="/cart" className="position-relative me-2">
                 <BsCart style={{ fontSize: "25px" }} />{" "}
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  99+
+                   {total_item}
                   <span className="visually-hidden">unread messages</span>
                 </span>
               </NavLink>
