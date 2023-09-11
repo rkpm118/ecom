@@ -35,6 +35,7 @@ function CartProvider({ children }) {
 
     //this is for the set item in localStorage
     useEffect(()=>{
+        dispatch({type:"TOTAL_AMMOUNT"})
             localStorage.setItem('utsavEcom',JSON.stringify(state.cart))
     },[state.cart])
     return <cartContext.Provider value={{ ...state, addToCart, delteCartHandler,clearAllCart,incToggler,decToggler}}>

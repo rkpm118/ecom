@@ -98,7 +98,13 @@ function cartreducer(state, action) {
           ...state,
           cart: updatedDatas,
         };
-
+         case "TOTAL_AMMOUNT":
+          let ammount=state.cart.reduce((acc,index)=>{
+            return acc+(index.price*index.quantity)},0)
+         return {
+                 ...state,
+                 total_amount:ammount
+         }
     default:
       return state;
   }
