@@ -2,12 +2,11 @@ function cartreducer(state, action) {
   switch (action.type) {
     case "ADD_TO_CART":
       let {
-        product: { price, image, name ,stock},
+        product: { price, image, name, stock },
         color,
         id,
         cartCount,
       } = action.payload;
-      console.log('hii i am ',stock)
       let findItem = state.cart.find((data) => {
         return data.id == id + color;
       });
@@ -38,6 +37,7 @@ function cartreducer(state, action) {
           color,
           quantity: cartCount,
           price,
+          stock,
         };
         return {
           ...state,
@@ -58,6 +58,46 @@ function cartreducer(state, action) {
         ...state,
         cart: [],
       };
+    case "INC_TOGGLER":
+      let updatedData = state.cart.map((data) => {
+        if (data.id == action.payload) {
+          let newData =
+            data.stock > data.quantity ? data.quantity + 1 : data.stock;
+
+          return {
+            ...data,
+            quantity: newData,
+          };
+        } else {
+          return {
+            ...data,
+          };
+        }
+      });
+      return {
+        ...state,
+        cart: updatedData,
+      };
+      case "DEC_TOGGLER":
+        let updatedDatas = state.cart.map((data) => {
+          if (data.id == action.payload) {
+            let newData =
+              data.stock < 1? data.quantity - 1 : 1;
+  
+            return {
+              ...data,
+              quantity: newData,
+            };
+          } else {
+            return {
+              ...data,
+            };
+          }
+        });
+        return {
+          ...state,
+          cart: updatedDatas,
+        };
 
     default:
       return state;

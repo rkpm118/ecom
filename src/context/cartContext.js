@@ -16,7 +16,6 @@ function CartProvider({ children }) {
     }
     let [state, dispatch] = useReducer(reducer, initalState)
     let addToCart = (id, color, cartCount, product) => {
-        console.log('hii i am testing')
         dispatch({ type: "ADD_TO_CART", payload: { id, color, cartCount, product } })
     }
 
@@ -27,12 +26,18 @@ function CartProvider({ children }) {
     {
         dispatch({type:"CLEARALLCART"})
     }
+    function incToggler(id) {
+        dispatch({type:'INC_TOGGLER',payload:id})
+      }
+      function decToggler(id) {
+          dispatch({type:'DEC_TOGGLER',payload:id})
+      }
 
     //this is for the set item in localStorage
     useEffect(()=>{
             localStorage.setItem('utsavEcom',JSON.stringify(state.cart))
     },[state.cart])
-    return <cartContext.Provider value={{ ...state, addToCart, delteCartHandler,clearAllCart }}>
+    return <cartContext.Provider value={{ ...state, addToCart, delteCartHandler,clearAllCart,incToggler,decToggler}}>
         {children}
     </cartContext.Provider>
 

@@ -4,13 +4,8 @@ import { AiFillDelete } from "react-icons/ai";
 import { useCart } from "../context/cartContext";
 import { NavLink } from "react-router-dom";
 function CartList({ quantity, price, name, image, id, color }) {
-  let { delteCartHandler } = useCart();
-  function incToggler() {
-    console.log("incHandler");
-  }
-  function decToggler() {
-    console.log("i am decToggler");
-  }
+  let { delteCartHandler,incToggler,decToggler } = useCart();
+
   return (
     <>
       <div className="row d-flex justify-content-center">
@@ -43,8 +38,12 @@ function CartList({ quantity, price, name, image, id, color }) {
         {/* //col */}
         <div className="col-2">
           <ToggleAddCart
-            incToggler={incToggler}
-            decToggler={decToggler}
+            incToggler={()=>{
+              incToggler(id)
+            }}
+            decToggler={()=>{
+              decToggler(id)
+            }}
             cartCount={quantity}
           />
         </div>
