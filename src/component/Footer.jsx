@@ -19,7 +19,7 @@ function Footer() {
             {/* //2 */}
             <div className="row p-5 d-flex  flex-grow-1 justify-content-around " style={{ backgroundColor: "blue", color: "white" }}>
                 <div className='col-md-2'>
-                    <p>Utsav Kumar Jha</p>
+                    <p>Ram Krishna</p>
                     <p>Aldus PageMaker including versions of Lorem Ipsum.</p>
                 </div>
                 <div className='col-md-2 d-flex '>
@@ -44,7 +44,7 @@ function Footer() {
                 <hr />
                 <div className="row">
                     <div className='col-md-3'>
-                        <p>@ {new Date().getFullYear()} utsav jha. All Rights Reserved</p>
+                        <p>@ {new Date().getFullYear()} Ram Krishna. All Rights Reserved</p>
                     </div>
                     <div className='col-md-3'>
                         <p>PRIVACY POLICY</p>

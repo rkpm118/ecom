@@ -9,7 +9,7 @@ function HeroSection({name}) {
         <div className="row justify-content-center gx-5 mt-5 ">
             <div className="col-md-4">
             <p>WELCOME TO</p>
-          <h2>{name?name:"Utsav Store"}</h2>
+          <h2>{name?name:"Ram Store"}</h2>
           <p>
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
