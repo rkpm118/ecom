@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Form, NavLink } from 'react-router-dom'
+import FormatPrice from './FormatPrice'
 
 function Products({product}) {
 
@@ -9,14 +10,14 @@ function Products({product}) {
    
      <div className='col-md-3 position-relative'>
       <div>
-      <span class="badge rounded-pill bg-light text-dark   position-absolute top-10 end-0  ">{category}</span>
+      <span className="badge rounded-pill bg-light text-dark   position-absolute top-10 end-0  ">{category}</span>
       <NavLink to={`/singleproduct/${id}`}> <img src={image} className='img-fluid'/>
       
       </NavLink>  
       </div>
       <div>
         <p>{name}</p>
-        <p>{price}</p>
+        <p>{<FormatPrice price={price}/>}</p>
 
       </div>
      </div>

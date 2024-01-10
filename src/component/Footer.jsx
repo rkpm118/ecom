@@ -33,13 +33,16 @@ function Footer() {
                     <p>Folllow Us</p>
 
                     <p>  <span className="  m-2"><BsGithub /></span>
-                        <span className="  m-2"><BsInstagram /></span>
-                        <span className="  m-2"><BsYoutube /></span> </p>
+                        <a href="https://www.instagram.com/" target='_blank' style={{color:"white"}}>
+                        <span className="  m-2"><BsInstagram /></span></a>
+                        <a href="https://www.youtube.com/" target='_blank' style={{color:"white"}}>
+                        <span className="  m-2"><BsYoutube /></span></a> </p>
 
                 </div>
                 <div className='col-md-2'>
                     <p>Call Us</p>
-                    <h5>63500XXXXX</h5>
+                    <a href="6299261814" style={{color:'white', textDecoration:"none"}}>+91 6299261814</a>
+                    
                 </div>
                 <hr />
                 <div className="row">
